@@ -1,0 +1,58 @@
+<form #registerform="ngForm" id="register" class="input-group" [style.left.px]="registerFormLeft" (submit)="onSubmit(registerform)">
+  <div>
+    <label for="firstNameInfo">First name</label>
+    <input type="text" name="firstName" class="input-field" placeholder="Enter your first name"
+      #firstName="ngModel" id="firstNameInfo" [(ngModel)]="formModel.firstName" required minlength="2" />
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert">
+      <div *ngIf="firstName.errors?.['required']">User Name is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="lastNameInfo">Last Name</label>
+    <input type="text" name="lastName" class="input-field" placeholder="Enter your last name"
+      #lastName="ngModel" id="lastNameInfo" [(ngModel)]="formModel.lastName" required minlength="2" />
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert">
+      <div *ngIf="lastName.errors?.['required']">Last name is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="emailInfo">Email Address</label>
+    <input type="email" name="email" class="input-field" placeholder="Enter your email" #email="ngModel"
+      id="emailInfo" [(ngModel)]="formModel.email" required />
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+      <div *ngIf="email.errors?.['required']">Email required.</div>
+      <div *ngIf="email.errors?.['email']">Email required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="passwordInfo">Password</label>
+    <input type="password" name="password" class="input-field" placeholder="Enter your password"
+      #password="ngModel" id="passwordInfo" [(ngModel)]="formModel.password" required minlength="8"
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).*$" />
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+      <div *ngIf="password.errors?.['required']">Password is required.</div>
+      <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters long.</div>
+      <div *ngIf="password.errors?.['pattern']">Password must include at least one digit, one lowercase letter, one
+        uppercase letter, and one non-alphanumeric character.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="userNameInfo">Username</label>
+    <input type="text" name="userName" class="input-field" placeholder="Enter your user name"
+      #userName="ngModel" id="userNameInfo" [(ngModel)]="formModel.userName" required />
+    <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert">
+      <div *ngIf="userName.errors?.['required']">Username is required.</div>
+    </div>
+  </div>
+
+  <input type="hidden" name="role" #role="ngModel"  [(ngModel)]="formModel.role" />
+
+  <button routerLink="/login" type="submit" [disabled]="registerform.invalid" id="registerBtn" class="submit-btn">Register</button>
+  <p class="center-details">
+    <button routerLink="/home"  type="button" class="btn btn-primary">Cancel - Go Back to home</button>
+  </p>
+</form>

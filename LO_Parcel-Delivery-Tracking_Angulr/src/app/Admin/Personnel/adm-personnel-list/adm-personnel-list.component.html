@@ -1,0 +1,57 @@
+<div>
+  <app-header [links]="adminHeaderLinks" [isLoggedIn]=true></app-header>
+
+
+  <h1>List of all the Personnel</h1>
+  <a routerLink="/psl/create" routerLinkActive="active">Add a new Personnel</a>
+  <hr>
+
+
+
+  <div >
+    <label for="statusFilter">Select Personnel Availability:</label>
+    <select id="statusFilter" [(ngModel)]="selectedAvailability" (change)="filterPersonnel()">
+      <option value="">All</option>
+      <option value="On Duty">On Duty</option>
+      <option value="Off Duty">Off Duty</option>
+    </select>
+  </div>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Personnel Id</th>
+        <th>first Name</th>
+        <th>last Name</th>
+        <th>Phone Number</th>
+        <th>Email Address</th>
+        <th>Availability</th>
+        <th>Username</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let psl of allPersonnel">
+        <td>{{psl.personnelId}}</td>
+        <td>{{psl.firstName}}</td>
+        <td>{{psl.lastName}}</td>
+        <td>{{psl.phoneNumber}}</td>
+        <td>{{psl.emailAddress}}</td>
+        <td>{{psl.availability}}</td>
+        <td>{{psl.userName}}</td>
+
+        <td>
+          <a routerLink="/psl/update/{{psl.personnelId}}" routerLinkActive="active">Update</a>&nbsp;|&nbsp;
+          <a routerLink="/psl/details/{{psl.personnelId}}" routerLinkActive="active">Details</a>&nbsp;|&nbsp;
+          <a routerLink="/psl/delete/{{psl.personnelId}}" routerLinkActive="active">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-footer></app-footer>
+</div>
+
+

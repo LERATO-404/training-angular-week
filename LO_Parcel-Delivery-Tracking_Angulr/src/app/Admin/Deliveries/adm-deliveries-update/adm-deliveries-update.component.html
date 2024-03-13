@@ -1,0 +1,54 @@
+<p>Update Delivery Details</p>
+<hr />
+
+<div class="row">
+  <div class="mt-5 col-md-8 offset-2">
+    <form #dlvform="ngForm" (ngSubmit)="onSubmit(dlvform)">
+      <input type="hidden" #deliveryId="ngModel" [(ngModel)]="deliveryform.deliveryId" name="deliveryId"
+        id="deliveryId">
+
+      <div class="form-group" required>
+        <label>Assign Driver</label>
+        <select class="form-control" [(ngModel)]="selectedDriverId" name="personnelId" (ngModelChange)="onDriverSelected(selectedDriverId)" required>
+          <option disabled selected>Select a driver</option>
+          <option *ngFor="let driver of drivers" [ngValue]="driver.personnelId">{{ driver.firstName }} {{ driver.lastName }}</option>
+        </select>
+      </div>
+
+      <div class="form-group" required>
+        <label>Delivery Status</label>
+        <select class="form-control"  #deliveryStatus="ngModel" [(ngModel)]="deliveryform.deliveryStatus"
+        name="deliveryStatus" id="deliveryStatus" required>
+        <option disabled selected>Select an option</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+          <option value="Scheduled">Scheduled</option>
+        </select>
+      </div>
+
+      <div class="form-group" required>
+        <label>Delivery Date</label>
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="deliveryDatePicker" [(ngModel)]="deliveryform.deliveryDate"
+            name="deliveryDate" id="deliveryDate" required>
+          <mat-datepicker-toggle matSuffix [for]="deliveryDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #deliveryDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <hr />
+      <div class="form-row">
+        <div class="d-grid gap-2">
+          <button type="submit" [disabled]="dlvform.invalid" class="btn btn-primary btn-lg btn-block">
+            Update Delivery
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+    <p class="center-details">
+      <button routerLink="/dlv" type="button" class="btn btn-danger">Cancel - Go Back to List</button>
+    </p>
+  </div>
+</div>

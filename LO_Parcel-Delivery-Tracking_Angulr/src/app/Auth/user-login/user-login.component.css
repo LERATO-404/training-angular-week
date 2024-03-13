@@ -1,0 +1,55 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+/* Input */
+
+.input-group {
+  top: 180px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  transition: 0.5s;
+}
+
+.input-field{
+  width: 100%;
+  padding: 10px 0;
+  margin:5px 10px;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+
+#loginBtn.submit-btn {
+  background: linear-gradient(#009688, #009688);
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+
+#loginBtn.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+
+.alert {
+  color: red;
+}
+

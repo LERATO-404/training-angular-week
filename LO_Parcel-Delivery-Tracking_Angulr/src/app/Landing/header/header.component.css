@@ -1,0 +1,67 @@
+.container {
+  width: 85%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header {
+  background-color: #333333;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  cursor: pointer;
+  margin-left: 40pt;
+  max-height: 40px;
+  margin-right: 20px;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav li::after {
+  content: " ";
+  height: 3px;
+  width: 0;
+  background: #009688;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+nav li:hover:after {
+  width: 100%;
+}
+
+a.nav-link {
+  cursor: pointer;
+}
+
+

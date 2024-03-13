@@ -1,0 +1,17 @@
+<div class="container">
+  <div [style.height]="formBoxHeight" class="form-box">
+    <div class="button-box">
+      <div [style.left.px]="isLoginView ? 0 : 110" id="btn"></div>
+      <button  type="button" class="toggle-btn" (click)="toggleView()">Login</button>
+      <button  type="button" class="toggle-btn" (click)="toggleView()">Register</button>
+    </div>
+
+    <div *ngIf="isLoginView" id="login">
+      <app-user-login class="form-container"></app-user-login>
+    </div>
+
+    <div *ngIf="!isLoginView" id="register">
+      <app-user-registration class="form-container"></app-user-registration>
+    </div>
+  </div>
+</div>

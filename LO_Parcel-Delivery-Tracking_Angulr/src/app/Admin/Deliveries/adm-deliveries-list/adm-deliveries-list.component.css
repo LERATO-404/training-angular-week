@@ -1,0 +1,33 @@
+label {
+  font-weight: bold;
+  margin-right: 10px;
+  float: left;
+}
+
+select {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  float: left;
+  margin-right: 10px;
+}
+
+input {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+option {
+  background-color: #fff;
+  color: #333;
+}
+
+option:checked {
+  background-color: #007bff;
+  color: #fff;
+}

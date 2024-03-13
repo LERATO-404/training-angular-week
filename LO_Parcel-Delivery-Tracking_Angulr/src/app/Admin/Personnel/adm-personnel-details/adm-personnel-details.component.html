@@ -1,0 +1,46 @@
+
+<div class="row">
+  <div class="mt-5 col-md-8 offset-2">
+    <p><b>Personnel Details</b></p>
+    <form #personnelDetailsForm="ngForm">
+      <input type="hidden"  #personnelId="ngModel"  [(ngModel)]="personnelForm.personnelId"  name="personnelId" id="personnelId" >
+
+      <div class="form-group" required>
+        <label>First name</label>
+        <input class="form-control" readonly   #firstName="ngModel"  [(ngModel)]="personnelForm.firstName"   name="firstName" id="firstName"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Last name</label>
+        <input class="form-control" readonly   #lastName="ngModel"  [(ngModel)]="personnelForm.lastName"   name="lastName" id="lastName"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Phone Number</label>
+        <input class="form-control" readonly   #phoneNumber="ngModel"  [(ngModel)]="personnelForm.phoneNumber"   name="phoneNumber" id="phoneNumber"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Email Address</label>
+        <input class="form-control" readonly   #emailAddress="ngModel"  [(ngModel)]="personnelForm.emailAddress"   name="emailAddress" id="emailAddress"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Availability</label>
+        <input class="form-control" readonly   #availability="ngModel"  [(ngModel)]="personnelForm.availability"   name="availability" id="availability"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Username</label>
+        <input class="form-control" readonly   #userName="ngModel"  [(ngModel)]="personnelForm.userName"   name="userName" id="userName"  />
+      </div>
+
+      <hr />
+    </form>
+
+    <p class="center-details">
+      <button routerLink="/psl"  type="button" class="btn btn-primary">Cancel - Go Back to List</button>
+    </p>
+  </div>
+</div>
+

@@ -1,0 +1,58 @@
+<div>
+  <app-header [links]="adminHeaderLinks" [isLoggedIn]=true></app-header>
+
+
+  <h1>List of all the Parcels</h1>
+  <a routerLink="/prcl/create" routerLinkActive="active">Add a new Parcel</a>
+  <hr>
+
+
+  <div >
+    <label for="statusFilter">Select Parcel Status:</label>
+    <select id="statusFilter" [(ngModel)]="selectedStatus" (change)="filterParcels()">
+      <option value="">All</option>
+      <option value="Parcel Delivery Confirmed">Parcels Delivery Confirmed</option>
+      <option value="In Transit">In Transit</option>
+      <option value="Delivered">Delivered</option>
+      <option value="On Hold">On Hold</option>
+      <option value="Issue">Issue</option>
+    </select>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Parcel Id</th>
+        <th>Sender Name</th>
+        <th>Receiver Name</th>
+        <th>Weight</th>
+        <th>Parcel Status</th>
+        <th>Scheduled Delivery Date</th>
+        <th>Receiver Address</th>
+        <th>Additional Notes</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prcl of allParcelDetails">
+        <td>{{prcl.parcelId}}</td>
+        <td>{{prcl.senderParticipantName}}</td>
+        <td>{{prcl.receiverParticipantName}}</td>
+        <td>{{prcl.weight}}</td>
+        <td>{{prcl.parcelStatus}}</td>
+        <td>{{prcl.scheduledDeliveryDate}}</td>
+        <td>{{prcl.receiverAddressLine}}, {{prcl.receiverSuburb}}, {{prcl.receiverCity}}, {{prcl.receiverPostalCode}} </td>
+        <td>{{prcl.additionalNotes}}</td>
+        <td>
+          <a routerLink="/prcl/update/{{prcl.parcelId}}" routerLinkActive="active">Update</a>&nbsp;|&nbsp;
+          <a routerLink="/prcl/details/{{prcl.parcelId}}" routerLinkActive="active">Details</a>&nbsp;|&nbsp;
+          <a routerLink="/prcl/delete/{{prcl.parcelId}}" routerLinkActive="active">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-footer></app-footer>
+</div>
+
+

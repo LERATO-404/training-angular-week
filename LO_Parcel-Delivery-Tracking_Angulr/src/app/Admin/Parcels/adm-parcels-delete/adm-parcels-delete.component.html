@@ -1,0 +1,54 @@
+<p>You are about to delete a Parcel</p>
+<hr />
+
+<div class="row">
+  <div class="mt-5 col-md-8 offset-2">
+    <p><b>Are you sure you want to Delete this Parcel?</b></p>
+    <form #parcelDelform="ngForm" (ngSubmit)="onSubmit(parcelDelform)">
+      <input type="hidden"  #parcelId="ngModel"  [(ngModel)]="parcelform.parcelId"  name="parcelId" id="parcelId" >
+
+      <div class="form-group" required>
+        <label>Sender Id</label>
+        <input class="form-control" readonly   #senderId="ngModel"  [(ngModel)]="parcelform.senderId"   name="senderId" id="senderId"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Receiver Id</label>
+        <input class="form-control" readonly   #receiverId="ngModel"  [(ngModel)]="parcelform.receiverId"   name="receiverId" id="receiverId"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Weight</label>
+        <input class="form-control" readonly   #weight="ngModel"  [(ngModel)]="parcelform.weight"   name="weight" id="weight"  />
+      </div>
+
+      <div class="form-group">
+        <label>Parcel Status</label>
+        <input class="form-control" readonly  #parcelStatus="ngModel"  [(ngModel)]="parcelform.parcelStatus"  name="parcelStatus" id="parcelStatus"  />
+      </div>
+
+      <div class="form-group">
+        <label>Scheduled Delivery Date</label>
+        <input class="form-control" readonly  #scheduledDeliveryDate="ngModel"  [(ngModel)]="parcelform.scheduledDeliveryDate"  name="scheduledDeliveryDate" id="scheduledDeliveryDate"  />
+      </div>
+
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <input class="form-control" readonly  #additionalNotes="ngModel"  [(ngModel)]="parcelform.additionalNotes"  name="additionalNotes" id="additionalNotes"  />
+      </div>
+
+      <hr />
+      <div class="form-row">
+        <div class="d-grid gap-2">
+          <button type="submit" [disabled]="parcelDelform.invalid" class="btn btn-danger btn-lg btn-block">
+            Delete Parcel
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <p class="center-details">
+      <button routerLink="/prcl"  type="button" class="btn btn-primary">Cancel - Go Back to List</button>
+    </p>
+  </div>
+</div>

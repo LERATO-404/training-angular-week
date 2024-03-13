@@ -1,0 +1,103 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.content h1  {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.content p {
+  margin: 10px auto;
+  font-weight: 100;
+  line-height: 40px;
+
+}
+
+button {
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-weight: 100;
+  border: 2px solid #009688;
+  background: transparent;
+  color: #010101;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+span {
+  background: #009688;
+  height: 100%;
+  width: 0px;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover {
+  border: none;
+}
+
+button:hover span {
+  width: 100%;
+}
+
+#signInBeginBtn {
+opacity: 0.9;
+}
+
+#signInBeginBtn:hover {
+opacity: 1; /* Full opacity on hover */
+}
+
+.card {
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 15px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px 15px;
+  background-position: center;
+  background-size: cover;
+  transform: 0.5s;
+}
+
+.card1 {
+  background-image: url(src/assets/images/d1.jpg);
+}
+
+.card2 {
+  background-image: url(src/assets/images/d2.jpg);
+}
+
+.card3 {
+  background-image: url(src/assets/images/d3.jpg);
+}
+
+.card4 {
+  background-image: url(src/assets/images/d4.jpg);
+}
+
+.card:hover {
+  transform: translateY(-5px)
+}

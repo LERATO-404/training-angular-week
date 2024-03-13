@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="mt-5 col-md-8 offset-2">
+    <p><b>Create/ Add New Parcel</b></p>
+    <form #parcelform="ngForm" (ngSubmit)="onSubmit(parcelform)">
+      <div class="form-group" required>
+        <label>Sender Id</label>
+        <input class="form-control" ngModel #senderId name="senderId" id="senderId" required />
+      </div>
+
+      <div class="form-group" required>
+        <label>Receiver Id</label>
+        <input class="form-control" ngModel #receiverId name="receiverId" id="receiverId" required />
+      </div>
+
+      <div class="form-group" required>
+        <label>Weight</label>
+        <input class="form-control" ngModel #weight name="weight" id="weight" required />
+      </div>
+
+      <div class="form-group" required>
+        <label>Parcel Status</label>
+        <select class="form-control" ngModel #parcelStatus="ngModel" name="parcelStatus" id="parcelStatus">
+          <option disabled selected>Select an option</option>
+          <option value="Parcel Order Confirmed">Parcel Order Confirmed</option>
+          <option value="On Hold">On Hold</option>
+          <option value="In Transit">In Transit</option>
+          <option value="Delivered">Delivered</option>
+        </select>
+      </div>
+
+
+      <div class="form-group" required>
+        <label>Scheduled Delivery Date</label>
+        <mat-form-field>
+          <input matInput [matDatepicker]="deliveryDatePicker" ngModel #scheduledDeliveryDate="ngModel" name="scheduledDeliveryDate"
+            id="scheduledDeliveryDate">
+          <mat-datepicker-toggle matSuffix [for]="deliveryDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #deliveryDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <input class="form-control large-input" ngModel #additionalNotes="ngModel" name="additionalNotes" id="additionalNotes" />
+      </div>
+
+
+
+      <hr />
+      <div class="form-row">
+        <div class="d-grid gap-2">
+          <button type="submit" [disabled]="parcelform.invalid"
+            class="btn btn-primary btn-lg btn-block">
+            Add New Delivery
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+    <p class="center-details">
+      <button routerLink="/prcl" type="button" class="btn btn-primary">Cancel - Go Back to List</button>
+    </p>
+  </div>
+</div>

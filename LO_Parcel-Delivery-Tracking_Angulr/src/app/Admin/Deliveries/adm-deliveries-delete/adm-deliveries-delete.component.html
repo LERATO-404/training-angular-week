@@ -1,0 +1,45 @@
+<p>You are about to delete a Delivery</p>
+<hr />
+
+<div class="row">
+  <div class="mt-5 col-md-8 offset-2">
+    <p><b>Are you sure you want to Delete this Delivery?</b></p>
+    <form #deliveryDelform="ngForm" (ngSubmit)="onSubmit(deliveryDelform)">
+      <input type="hidden"  #deliveryId="ngModel"  [(ngModel)]="deliveryform.deliveryId"  name="deliveryId" id="deliveryId" >
+
+      <div class="form-group" required>
+        <label>Parcel Id</label>
+        <input class="form-control" readonly   #parcelId="ngModel"  [(ngModel)]="deliveryform.parcelId"   name="parcelId" id="parcelId"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Personnel Id</label>
+        <input class="form-control"  readonly  #personnelId="ngModel"  [(ngModel)]="deliveryform.personnelId"  name="personnelId" id="personnelId"  />
+      </div>
+
+      <div class="form-group">
+        <label>Delivery Status</label>
+        <input class="form-control" readonly  #deliveryStatus="ngModel"  [(ngModel)]="deliveryform.deliveryStatus"  name="deliveryStatus" id="deliveryStatus"  />
+      </div>
+
+      <div class="form-group">
+        <label>Delivery Date</label>
+        <input class="form-control" readonly  #deliveryDate="ngModel"  [(ngModel)]="deliveryform.deliveryDate"  name="deliveryDate" id="deliveryDate"  />
+      </div>
+
+
+      <hr />
+      <div class="form-row">
+        <div class="d-grid gap-2">
+          <button type="submit" [disabled]="deliveryDelform.invalid" class="btn btn-danger btn-lg btn-block">
+            Delete Delivery
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <p class="center-details">
+      <button routerLink="/dlv"  type="button" class="btn btn-primary">Cancel - Go Back to List</button>
+    </p>
+  </div>
+</div>

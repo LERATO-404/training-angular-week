@@ -1,0 +1,72 @@
+<p>Update Delivery Details</p>
+<hr />
+
+<div class="row">
+  <div class="mt-5 col-md-8 offset-2">
+    <form #parcelUpdateform="ngForm" (ngSubmit)="onSubmit(parcelUpdateform)">
+      <input type="hidden" #parcelId="ngModel" [(ngModel)]="parcelform.parcelId" name="parcelId"
+        id="parcelId">
+
+
+      <div class="form-group" required>
+        <label>Sender Id</label>
+        <input class="form-control" #senderId="ngModel" [(ngModel)]="parcelform.senderId" name="senderId"
+          id="senderId" required />
+      </div>
+
+      <div class="form-group" required>
+        <label>Receiver Id</label>
+        <input class="form-control" #receiverId="ngModel" [(ngModel)]="parcelform.receiverId" name="receiverId"
+          id="receiverId" required />
+      </div>
+
+      <div class="form-group" required>
+        <label>Weight</label>
+        <input class="form-control" #weight="ngModel" [(ngModel)]="parcelform.weight" name="weight"
+          id="weight" required />
+      </div>
+
+
+      <div class="form-group" required>
+        <label>Parcel Status</label>
+        <select class="form-control"  #deliveryStatus="ngModel" [(ngModel)]="parcelform.parcelStatus"
+        name="parcelStatus" id="parcelStatus" required>
+        <option disabled selected>Select an option</option>
+          <option value="In Transit">In Transit</option>
+          <option value="On Hold">On Hold</option>
+          <option value="Delivered">Delivered</option>
+        </select>
+      </div>
+
+      <div class="form-group" required>
+        <label>Scheduled Delivery Date</label>
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="deliveryDatePicker" [(ngModel)]="parcelform.scheduledDeliveryDate"
+            name="scheduledDeliveryDate" id="scheduledDeliveryDate" required>
+          <mat-datepicker-toggle matSuffix [for]="deliveryDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #deliveryDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <input class="form-control" #additionalNotes="ngModel" [(ngModel)]="parcelform.additionalNotes" name="additionalNotes"
+          id="additionalNotes" />
+      </div>
+
+      <hr />
+      <div class="form-row">
+        <div class="d-grid gap-2">
+          <button type="submit" [disabled]="parcelUpdateform.invalid" class="btn btn-primary btn-lg btn-block">
+            Update Delivery
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+    <p class="center-details">
+      <button routerLink="/dlv" type="button" class="btn btn-danger">Cancel - Go Back to List</button>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div>
+  <app-header [links]="adminHeaderLinks" [isLoggedIn]=true></app-header>
+
+
+  <h1>List of all the Deliveries</h1>
+  <a routerLink="/dlv/create" routerLinkActive="active">Add a new Delivery</a>
+  <hr>
+  <label for="filter">Filter By:</label>
+  <select id="filter" [(ngModel)]="selectedFilter" (change)="filterDeliveries()">
+    <option value="status">Delivery Status</option>
+    <option value="driver">Driver Full Name</option>
+  </select>
+
+  <div *ngIf="selectedFilter === 'status'">
+    <label for="statusFilter">Select Delivery Status:</label>
+    <select id="statusFilter" [(ngModel)]="selectedStatus" (change)="filterDeliveries()">
+      <option value="">All</option>
+      <option value="Delivery Order Confirmed">Delivery Order Confirmed</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+      <option value="Scheduled">Scheduled</option>
+      <option value="Issue">Issue</option>
+    </select>
+  </div>
+
+  <input *ngIf="selectedFilter === 'driver'" [(ngModel)]="selectedDriver" placeholder="Filter by Driver Full Name">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Delivery Id</th>
+        <th>Driver Full Name</th>
+        <th>Parcel Id</th>
+        <th>Delivery Status</th>
+        <th>Scheduled Delivery Date</th>
+        <th>Actual Delivery Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dlv of allDeliveries">
+        <td>{{dlv.deliveryId}}</td>
+        <td>{{dlv.firstName}} {{dlv.lastName}}</td>
+        <td>{{dlv.parcelId}}</td>
+        <td>{{dlv.deliveryStatus}}</td>
+        <td>{{dlv.scheduledDeliveryDate}}</td>
+        <td>{{dlv.deliveryDate}}</td>
+        <td>
+          <a routerLink="/dlv/update/{{dlv.deliveryId}}" routerLinkActive="active">Update</a>&nbsp;|&nbsp;
+          <a routerLink="/dlv/details/{{dlv.deliveryId}}" routerLinkActive="active">Details</a>&nbsp;|&nbsp;
+          <a routerLink="/dlv/delete/{{dlv.deliveryId}}" routerLinkActive="active">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-footer></app-footer>
+</div>
+
+

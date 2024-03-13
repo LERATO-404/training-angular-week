@@ -1,0 +1,15 @@
+<header>
+  <div id="menuLinks" class="container">
+    <img src="assets/images/Logo.png" alt="PDT LOGO" class="logo">
+    <nav>
+      <ul>
+        <li *ngFor="let link of links"><a [href]="link.url">{{ link.text }}</a></li>
+        <li *ngIf="isLoggedIn" class="nav nav-item"><a class="nav-link" (click)="userlogout()">Log out</a></li>
+        <li *ngIf="!isLoggedIn" class="nav nav-item"><a class="nav-link" routerLink="/login">Login / Register</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+

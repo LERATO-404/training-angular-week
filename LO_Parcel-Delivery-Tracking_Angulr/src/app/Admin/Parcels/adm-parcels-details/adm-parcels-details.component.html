@@ -1,0 +1,47 @@
+
+<div class="row">
+  <div class="mt-5 col-md-8 offset-2">
+    <p><b>Parcel Details</b></p>
+    <form #parcelDetailsform="ngForm">
+      <input type="hidden"  #parcelId="ngModel"  [(ngModel)]="parcelDetailsForm.parcelId"  name="parcelId" id="parcelId" >
+
+      <div class="form-group" required>
+        <label>Sender Id</label>
+        <input class="form-control" readonly   #senderId="ngModel"  [(ngModel)]="parcelDetailsForm.senderId"   name="senderId" id="senderId"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Receiver Id</label>
+        <input class="form-control" readonly   #receiverId="ngModel"  [(ngModel)]="parcelDetailsForm.receiverId"   name="receiverId" id="receiverId"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Weight</label>
+        <input class="form-control" readonly   #weight="ngModel"  [(ngModel)]="parcelDetailsForm.weight"   name="weight" id="weight"  />
+      </div>
+
+      <div class="form-group">
+        <label>Parcel Status</label>
+        <input class="form-control" readonly  #parcelStatus="ngModel"  [(ngModel)]="parcelDetailsForm.parcelStatus"  name="parcelStatus" id="parcelStatus"  />
+      </div>
+
+      <div class="form-group">
+        <label>Scheduled Delivery Date</label>
+        <input class="form-control" readonly  #scheduledDeliveryDate="ngModel"  [(ngModel)]="parcelDetailsForm.scheduledDeliveryDate"  name="scheduledDeliveryDate" id="scheduledDeliveryDate"  />
+      </div>
+
+      <div class="form-group" required>
+        <label>Additional Notes</label>
+        <input class="form-control large-input"  readonly  #additionalNotes="ngModel"  [(ngModel)]="parcelDetailsForm.additionalNotes"  name="additionalNotes" id="additionalNotes"  />
+      </div>
+
+
+      <hr />
+    </form>
+
+    <p class="center-details">
+      <button routerLink="/prcl"  type="button" class="btn btn-primary">Cancel - Go Back to List</button>
+    </p>
+  </div>
+</div>
+
